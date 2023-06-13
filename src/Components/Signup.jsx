@@ -15,7 +15,6 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.message === "User already registered") {
           setError("User already registered");
           return;

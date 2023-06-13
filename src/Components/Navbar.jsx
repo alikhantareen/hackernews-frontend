@@ -7,7 +7,7 @@ const Navbar = () => {
   function logout() {
     setauthenticated(null);
     localStorage.clear();
-    navigate("/");
+    navigate("/login");
   }
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
