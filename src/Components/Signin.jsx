@@ -17,9 +17,8 @@ const Signin = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.token) {
-          let user = data.user.email;
           localStorage.setItem("token", data.token);
-          localStorage.setItem("user", user.split('@')[0]);
+          localStorage.setItem("user", data.user.email);
           navigate("/");
         } else {
           setError("Username/Password invalid. Try again.");

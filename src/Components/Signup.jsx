@@ -45,9 +45,8 @@ const SignUp = () => {
           return;
         }
         if (data.token) {
-          let user = data.user.email;
           localStorage.setItem("token", data.token);
-          localStorage.setItem("user", user.split('@')[0]);
+          localStorage.setItem("user", data.user.email);
           navigate("/");
         }
       });
