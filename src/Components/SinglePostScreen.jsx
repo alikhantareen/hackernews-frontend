@@ -28,6 +28,7 @@ const SinglePostScreen = () => {
       body: JSON.stringify({
         comment: comment,
         username: user,
+        token: localStorage.getItem("token"),
         requestFor: "comment",
       }),
     })
@@ -35,6 +36,7 @@ const SinglePostScreen = () => {
       .then((data) => {
         if (data.comments) {
           setComment(data.comment);
+          alert("Comment has been added");
         } else {
           alert(data.error);
         }
@@ -47,6 +49,7 @@ const SinglePostScreen = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: localStorage.getItem("user"),
+          token: localStorage.getItem("token"),
           requestFor: "upvote",
         }),
       })
@@ -54,7 +57,7 @@ const SinglePostScreen = () => {
         .then((data) => {
           if (data.upVote) {
             setUpvote(data.upVote);
-            alert("Upvoted successfully.")
+            alert("Upvoted successfully.");
           } else {
             alert(data.error);
           }
@@ -133,25 +136,29 @@ const SinglePostScreen = () => {
                 </div>
               </div>
             ) : (
-              <p className="text-slate-500">Please login to add comment or to upvote.</p>
+              <p className="text-slate-500">
+                Please login to add comment or to upvote.
+              </p>
             )}
-            <p className="text-xl text-slate-800 font-semibold">Comments</p>
-            {data.comments.length === 0 ? (
-              <p className="text-slate-500">No comments to show.</p>
-            ) : (
-              data.comments.map((elem, index) => {
-                return (
-                  <div className="p-2">
-                    <p>
-                      {index + 1} - {elem.content} -{" "}
-                      <span className="italic">
-                        (comment by - {elem.username})
-                      </span>
-                    </p>
-                  </div>
-                );
-              })
-            )}
+            <div>
+              <p className="text-xl text-slate-800 font-semibold">Comments</p>
+              {data.comments.length === 0 ? (
+                <p className="text-slate-500">No comments to show.</p>
+              ) : (
+                data.comments.map((elem, index) => {
+                  return (
+                    <div className="p-2">
+                      <p>
+                        {index + 1} - {elem.content} -{" "}
+                        <span className="italic">
+                          (comment by - {elem.username})
+                        </span>
+                      </p>
+                    </div>
+                  );
+                })
+              )}
+            </div>
           </div>
         )}
       </main>
