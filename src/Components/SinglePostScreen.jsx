@@ -44,11 +44,12 @@ const SinglePostScreen = () => {
   }
   function addupvote() {
     if (authenticated) {
+      let user = localStorage.getItem("user");
       fetch(`http://localhost:5050/post/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: localStorage.getItem("user"),
+          username: user,
           token: localStorage.getItem("token"),
           requestFor: "upvote",
         }),

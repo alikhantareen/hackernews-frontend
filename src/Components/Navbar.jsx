@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const navigate = useNavigate();
   const [authenticated, setauthenticated] = useState(null);
+  const [id, profileID] = useState(null);
   function logout() {
     setauthenticated(null);
     localStorage.clear();
@@ -13,6 +14,7 @@ const Navbar = () => {
     const loggedInUser = localStorage.getItem("token");
     if (loggedInUser) {
       setauthenticated(loggedInUser);
+      profileID(localStorage.getItem("user_id"));
     }
   }, [authenticated]);
   return (
@@ -42,7 +44,9 @@ const Navbar = () => {
             {authenticated ? (
               <>
                 <li>
-                  <a className="justify-between">Profile</a>
+                  <Link to={`/profile/${id}`}>
+                    <p className="justify-between">Profile</p>
+                  </Link>
                 </li>
                 <li>
                   <a onClick={logout}>Logout</a>

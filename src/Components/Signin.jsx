@@ -19,6 +19,7 @@ const Signin = () => {
         if (data.token) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("user", data.user.email);
+          localStorage.setItem("user_id", data.user._id);
           navigate("/");
         } else {
           setError("Username/Password invalid. Try again.");
