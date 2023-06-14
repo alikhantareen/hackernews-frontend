@@ -39,7 +39,7 @@ const HomeScreen = () => {
           dataState.map((elem, index) => {
             return (
               <div className="flex flex-col gap-2 mb-4 shadow-md p-4 rounded-md">
-                <Link to={`/${elem._id}`}>
+                <Link to={`/post/${elem._id}`}>
                   <p className="text-xl text-slate-800">
                     {index + 1}. {elem.title}
                   </p>

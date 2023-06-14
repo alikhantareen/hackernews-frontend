@@ -11,7 +11,7 @@ function App() {
         <Route path="/" exact={true} element={<HomeScreen />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Signin />} />
-        <Route path="/:id" element={<SinglePostScreen />} />
+        <Route path="/post/:id" element={<SinglePostScreen />} />
       </Routes>
     </div>
   );
