@@ -67,6 +67,10 @@ const SinglePostScreen = () => {
       navigate("/login");
     }
   }
+  function dateFunc(d) {
+    let date = new Date(d);
+    return date.toLocaleString();
+  }
   useEffect(() => {
     fetchPost(id);
     const loggedInUser = localStorage.getItem("token");
@@ -96,7 +100,7 @@ const SinglePostScreen = () => {
               <span className="link link-primary">{data.link}</span>
             </a>
             <p className="text-md text-slate-800">
-              Posted on: {data.createdAt}
+              Posted on: {dateFunc(data.createdAt)}
             </p>
             <p className="text-md text-slate-800">
               Upvotes: {data.upVote.length}

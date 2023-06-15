@@ -16,6 +16,10 @@ const Profile = () => {
         setLoading(false);
       });
   }
+  function dateFunc(d) {
+    let date = new Date(d);
+    return date.toLocaleString();
+  }
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
@@ -58,7 +62,7 @@ const Profile = () => {
                     <div>
                       <p>
                         {elem.upVote.length} upvotes | created at{" "}
-                        {elem.createdAt} | {elem.comments.length} comments
+                        {dateFunc(elem.createdAt)} | {elem.comments.length} comments
                       </p>
                     </div>
                   </div>

@@ -14,6 +14,10 @@ const HomeScreen = () => {
         setLoading(false);
       });
   }
+  function dateFunc(d) {
+    let date = new Date(d);
+    return date.toLocaleString();
+  }
   useEffect(() => {
     fetchData();
     const loggedInUser = localStorage.getItem("token");
@@ -38,7 +42,7 @@ const HomeScreen = () => {
                 </Link>
                 <div>
                   <p>
-                    {elem.upVote.length} upvotes | created at {elem.createdAt} |{" "}
+                    {elem.upVote.length} upvotes | created at {dateFunc(elem.createdAt)} |{" "}
                     {elem.comments.length} comments
                   </p>
                 </div>
