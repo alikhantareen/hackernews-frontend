@@ -83,30 +83,29 @@ const SinglePostScreen = () => {
         ) : (
           <div className="shadow-md p-8 flex flex-col gap-4 rounded-md">
             <p className="text-2xl text-slate-800">
-              Title: <span className="font-semibold">{data.title}</span>
+              <span className="font-semibold">{data.title}</span>
             </p>
-            <p className="text-xl text-slate-800">
-              Description: {data.description}
+            <p className="text-md text-slate-800">
+              {data.description}
             </p>
             <a
               href={data.link}
               target="_blank"
-              className="text-xl text-slate-800"
+              className="text-md text-slate-800"
             >
-              Link: <span className="link link-primary">{data.link}</span>
+              <span className="link link-primary">{data.link}</span>
             </a>
-            <p className="text-xl text-slate-800">
+            <p className="text-md text-slate-800">
               Posted on: {data.createdAt}
             </p>
-            <p className="text-xl text-slate-800">
+            <p className="text-md text-slate-800">
               Upvotes: {data.upVote.length}
             </p>
             {authenticated ? (
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <textarea
                   rows={3}
-                  cols={100}
-                  className="textarea textarea-primary"
+                  className="textarea textarea-primary w-full"
                   placeholder="Enter your comment"
                   id="comment"
                 ></textarea>
